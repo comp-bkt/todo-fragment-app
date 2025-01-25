@@ -1,5 +1,6 @@
 package com.example.todoapp.ui
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -7,8 +8,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -21,7 +24,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.todoapp.R
 import com.example.todoapp.Todo
+import androidx.compose.material3.MaterialTheme
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TodoUIScreen (todo: Todo, modifier: Modifier){
     val input: MutableState<String> = rememberSaveable { mutableStateOf("")}
@@ -38,6 +43,15 @@ fun TodoUIScreen (todo: Todo, modifier: Modifier){
         modifier = modifier,
         verticalArrangement = Arrangement.Top
     ){
+        TopAppBar(
+            title = {
+                stringResource(R.string.app_name)
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(MaterialTheme.colorScheme.primary)
+        )
+
         Text(text = stringResource(id = R.string.todo_title_label),
             fontWeight = FontWeight.Bold
         )
