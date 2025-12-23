@@ -33,7 +33,7 @@ fun TodoUIScreen (todo: Todo, modifier: Modifier){
     val isChecked = rememberSaveable { mutableStateOf(false) }
 
     /*currently saved instance state used to save a Bundle and then passed to
-    composable on Orientation change - consider chaging to watching the address
+    composable on Orientation change - consider changing to watching the address
     space of the Todo Object to force the recomposition*/
 
     isChecked.value = todo.isComplete
