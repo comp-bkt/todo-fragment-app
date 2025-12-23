@@ -42,7 +42,7 @@ class TodoFragment : Fragment() {
             }
         })
         mButtonDate = view.findViewById<View>(R.id.todo_date) as Button
-        mButtonDate.setText(mTodo!!.date.toString())
+        mButtonDate.text = mTodo!!.date.toString()
         mButtonDate.isEnabled = false
         mCheckBoxIsComplete = view.findViewById<View>(R.id.todo_complete) as CheckBox
         mCheckBoxIsComplete.setOnCheckedChangeListener { buttonView, isChecked ->
